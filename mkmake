@@ -1,0 +1,29 @@
+#!/bin/bash
+#MAKEFILE
+
+    if [ $1 == "c" ] ; then
+        echo "compile_and_exec:" > makefile;
+	echo "	@rm -f *.o" >> makefile;
+        echo "	@gcc -g -c *.c" >> makefile; 
+        echo "	@gcc *.o -lpthread -g -o \"${PWD##*/}\"" >> makefile;  
+        echo "	@./${PWD##*/}" >> makefile;
+	
+	echo "@Foi gerado um makefile@";    
+    
+     else
+
+        if [ $1 == "java" ] ; then
+		echo "Main-Class: ${PWD##*/}.${PWD##*/}" > manifest.txt;
+	  
+		echo "compile_and_exec: *.java" > makefile;
+		echo "	@javac -d . *.java" >> makefile;
+		echo "	@jar -cvfm ${PWD##*/}.jar manifest.txt ${PWD##*/}*" >> makefile;
+		echo "	@java -jar ${PWD##*/}.jar" >> makefile;
+
+		echo "@Foi gerado um makefile e um manifesto@";    
+
+	else
+		echo "@Tipo incorreto.@";
+		echo "@Tente novamente (ex. mkmake java ou mkmake c).@";
+	fi
+    fi
