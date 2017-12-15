@@ -4,26 +4,38 @@
 case $1 in
 
 	c)
-        	echo "compile_and_exec:" > makefile;
-		echo "	@rm -f *.o" >> makefile;
+					echo "main: clean compile exec" > makefile;
+					echo "clean:" >> makefile;
+					echo "	@rm -f *.o" >> makefile;
+					echo "compile:" >> makefile;
         	echo "	@gcc -g -c *.c" >> makefile; 
         	echo "	@gcc *.o -lpthread -g -o \"${PWD##*/}\"" >> makefile;  
+        	echo "exec:" >> makefile;
         	echo "	@./${PWD##*/}" >> makefile;
 	
 		echo "@Foi gerado um makefile@";    
     
 		;;
 
-        java)
+  java)
 		echo "Main-Class: ${PWD##*/}.${PWD##*/}" > manifest.txt;
 	  
-		echo "compile_and_exec: *.java" > makefile;
+		echo "main: compile exec" > makefile;
+		echo "compile: *.java" >> makefile;
 		echo "	@javac -d . *.java" >> makefile;
 		echo "	@jar -cvfm ${PWD##*/}.jar manifest.txt ${PWD##*/}*" >> makefile;
+		echo "exec:" >> makefile;
 		echo "	@java -jar ${PWD##*/}.jar" >> makefile;
 
 		echo "@Foi gerado um makefile e um manifesto@";    
 
+		;;
+	
+	nodejs)
+		echo "main: exec" > makefile;
+		echo "exec:" >> makefile;
+		echo "	@nodejs ${PWD##*/}.js" >> makefile;
+		
 		;;
 	
 	*)
