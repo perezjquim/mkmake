@@ -8,36 +8,41 @@ case $1 in
 		echo "clean:" >> makefile;
 		echo "	@rm -f *.o" >> makefile;
 		echo "compile:" >> makefile;
-        	echo "	@gcc -g -c *.c" >> makefile; 
-        	echo "	@gcc *.o -lpthread -g -o \"${PWD##*/}\"" >> makefile;  
+        	echo "	@gcc -g -c *.c" >> makefile;
+        	echo "	@gcc *.o -lpthread -g -o \"${PWD##*/}\"" >> makefile;
         	echo "exec:" >> makefile;
         	echo "	@./${PWD##*/}" >> makefile;
-	
-		echo "@Foi gerado um makefile@";    
-    
+
+		echo "@Foi gerado um makefile@";
+
 		;;
 
   	java)
 		echo "Main-Class: ${PWD##*/}.${PWD##*/}" > manifest.txt;
-	  
 		echo "main: compile exec" > makefile;
 		echo "compile: *.java" >> makefile;
 		echo "	@javac -d . *.java" >> makefile;
 		echo "	@jar -cvfm ${PWD##*/}.jar manifest.txt ${PWD##*/}*" >> makefile;
 		echo "exec:" >> makefile;
 		echo "	@java -jar ${PWD##*/}.jar" >> makefile;
-
-		echo "@Foi gerado um makefile e um manifesto@";    
+		echo "@Foi gerado um makefile e um manifesto@";
 
 		;;
-	
+
 	nodejs)
 		echo "main: exec" > makefile;
 		echo "exec:" >> makefile;
 		echo "	@nodejs ${PWD##*/}.js" >> makefile;
-		
+
 		;;
-	
+
+	prolog)
+		echo "main: exec" > makefile;
+		echo "exec:" >> makefile;
+		echo "	@swipl -q -s ${PWD##*/}.pl -t ${PWD##*/}" >> makefile;
+
+		;;
+
 	*)
 		echo "@Tipo incorreto.@";
 		echo "@Tente novamente (ex. mkmake java ou mkmake c).@";
