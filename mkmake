@@ -4,10 +4,10 @@
 case $1 in
 
 	c)
-					echo "main: clean compile exec" > makefile;
-					echo "clean:" >> makefile;
-					echo "	@rm -f *.o" >> makefile;
-					echo "compile:" >> makefile;
+		echo "main: clean compile exec" > makefile;
+		echo "clean:" >> makefile;
+		echo "	@rm -f *.o" >> makefile;
+		echo "compile:" >> makefile;
         	echo "	@gcc -g -c *.c" >> makefile; 
         	echo "	@gcc *.o -lpthread -g -o \"${PWD##*/}\"" >> makefile;  
         	echo "exec:" >> makefile;
@@ -17,7 +17,7 @@ case $1 in
     
 		;;
 
-  java)
+  	java)
 		echo "Main-Class: ${PWD##*/}.${PWD##*/}" > manifest.txt;
 	  
 		echo "main: compile exec" > makefile;
