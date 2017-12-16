@@ -43,6 +43,13 @@ case $1 in
 
 		;;
 
+	python)
+		echo "main: exec" > makefile;
+		echo "exec:" >> makefile;
+		echo "	@python ${PWD##*/}.py" >> makefile;
+
+		;;
+
 	*)
 		echo "@Tipo incorreto.@";
 		echo "@Tente novamente (ex. mkmake java ou mkmake c).@";

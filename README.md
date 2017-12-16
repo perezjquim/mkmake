@@ -5,5 +5,6 @@
 ### - C
 ### - Nodejs
 ### - Prolog
+### - Python
 ## O makefile fica, portanto, com um formato genérico.
 ## De forma a facilitar, ao ser feito 'make', já é compilado e executado o determinado programa.
