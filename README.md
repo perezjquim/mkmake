@@ -8,3 +8,5 @@
 ### - Python
 ## O makefile fica, portanto, com um formato genérico.
 ## De forma a facilitar, ao ser feito 'make', já é compilado e executado o determinado programa.
+
+Para instalar basta fazer 'make' na diretoria onde foram extraídos os ficheiros.
