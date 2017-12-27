@@ -10,6 +10,8 @@
 - Prolog
 - Python
 
+### <a href=https://github.com/perezjquim/mkmake/archive/master.zip>DOWNLOAD</a>
+
 Para instalar basta fazer `make` na diretoria onde foram extraídos os ficheiros.
 
 ## Exemplo de uso: 
