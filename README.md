@@ -1,12 +1,17 @@
 # mkmake
-## Este script cria de forma automática um makefile conforme a linguagem de programação.
-## Linguagens de programação:
-### - Java
-### - C
-### - Nodejs
-### - Prolog
-### - Python
-## O makefile fica, portanto, com um formato genérico.
-## De forma a facilitar, ao ser feito 'make', já é compilado e executado o determinado programa.
 
-Para instalar basta fazer 'make' na diretoria onde foram extraídos os ficheiros.
+## Este script gera um makefile generalizado de uma determinada linguagem de programação.
+
+## Linguagens de programação:
+
+- Java
+- C
+- Nodejs
+- Prolog
+- Python
+
+Para instalar basta fazer `make` na diretoria onde foram extraídos os ficheiros.
+
+## Exemplo de uso: 
+
+`mkmake java`
