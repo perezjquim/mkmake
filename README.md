@@ -1,8 +1,8 @@
-# mkmake
+# MKMAKE
 
-## Este script gera um makefile generalizado de uma determinada linguagem de programação.
+## This script generates a generic makefile directed to a certain programming language
 
-## Linguagens de programação:
+## Supported programming languages:
 
 - Java
 - C
@@ -12,8 +12,10 @@
 
 ### <a href=https://github.com/perezjquim/mkmake/archive/master.zip>DOWNLOAD</a>
 
-Para instalar basta fazer `make` na diretoria onde foram extraídos os ficheiros.
+Installation instruction: execute the command `make` in the directory which you extracted the .zip file.
 
-## Exemplo de uso: 
+## Examples of use
 
 `mkmake java`
+`mkmake c`
+`mkmake nodejs`

@@ -1,8 +1,12 @@
 #!/bin/bash
-#MAKEFILE
+
+###########
+# MKMAKE #
+###########
 
 case $1 in
 
+	# C Makefile
 	c)
 		echo "main: clean compile exec" > makefile;
 		echo "clean:" >> makefile;
@@ -12,11 +16,10 @@ case $1 in
         	echo "	@gcc *.o -lpthread -g -o \"${PWD##*/}\"" >> makefile;
         	echo "exec:" >> makefile;
         	echo "	@./${PWD##*/}" >> makefile;
-
-		echo "@Foi gerado um makefile@";
-
+		echo "@ Makefile generated. @";
 		;;
 
+	# Java makefile
   	java)
 		echo "Main-Class: ${PWD##*/}.${PWD##*/}" > manifest.txt;
 		echo "main: compile exec" > makefile;
@@ -25,33 +28,37 @@ case $1 in
 		echo "	@jar -cvfm ${PWD##*/}.jar manifest.txt ${PWD##*/}*" >> makefile;
 		echo "exec:" >> makefile;
 		echo "	@java -jar ${PWD##*/}.jar" >> makefile;
-		echo "@Foi gerado um makefile e um manifesto@";
-
+		echo "@ Makefile and manifest generated. @";
 		;;
 
+	# Nodejs makefile
 	nodejs)
 		echo "main: exec" > makefile;
 		echo "exec:" >> makefile;
 		echo "	@nodejs ${PWD##*/}.js" >> makefile;
-
+		echo "@ Makefile generated. @";s
 		;;
 
+	# Prolog makefile
 	prolog)
 		echo "main: exec" > makefile;
 		echo "exec:" >> makefile;
 		echo "	@swipl -q -s ${PWD##*/}.pl -t ${PWD##*/}" >> makefile;
-
+		echo "@ Makefile generated. @";
 		;;
 
+	# Python makefile
 	python)
 		echo "main: exec" > makefile;
 		echo "exec:" >> makefile;
 		echo "	@python ${PWD##*/}.py" >> makefile;
-
+		echo "@ Makefile generated. @";
 		;;
 
+	# (invalid option)
 	*)
-		echo "@Tipo incorreto.@";
-		echo "@Tente novamente (ex. mkmake java ou mkmake c).@";
+		echo "@ Invalid option. @";
+		echo "@ Try again. (example: mkmake java) @";
+		;;
 
 esac
