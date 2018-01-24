@@ -36,7 +36,7 @@ case $1 in
 		echo "main: exec" > makefile;
 		echo "exec:" >> makefile;
 		echo "	@nodejs ${PWD##*/}.js" >> makefile;
-		echo "@ Makefile generated. @";s
+		echo "@ Makefile generated. @";
 		;;
 
 	# Prolog makefile
