@@ -10,7 +10,7 @@
 - Prolog
 - Python
 
-### <a href=https://github.com/perezjquim/mkmake/archive/master.zip>DOWNLOAD</a>
+## <a href="https://github.com/perezjquim/mkmake/archive/master.zip"> DOWNLOAD </a>
 
 Installation instruction: execute the command `make` in the directory which you extracted the .zip file.
 
