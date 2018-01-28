@@ -10,24 +10,34 @@ case $1 in
 	c)
 		echo "main: clean compile exec" > makefile;
 		echo "clean:" >> makefile;
+		echo "	@echo 'Cleaning up..'">> makefile;
 		echo "	@rm -f *.o" >> makefile;
 		echo "compile:" >> makefile;
+		echo "	@echo 'Compiling..'">>makefile;
         	echo "	@gcc -g -c *.c" >> makefile;
         	echo "	@gcc *.o -lpthread -g -o \"${PWD##*/}\"" >> makefile;
         	echo "exec:" >> makefile;
+        	echo "	@echo 'Executing..'">>makefile;
         	echo "	@./${PWD##*/}" >> makefile;
+        	
 		echo "@ Makefile generated. @";
 		;;
 
 	# Java makefile
   	java)
 		echo "Main-Class: ${PWD##*/}.${PWD##*/}" > manifest.txt;
-		echo "main: compile exec" > makefile;
-		echo "compile: *.java" >> makefile;
-		echo "	@javac -d . *.java" >> makefile;
-		echo "	@jar -cvfm ${PWD##*/}.jar manifest.txt ${PWD##*/}*" >> makefile;
+		echo "Class-Path: ." >> manifest.txt;
+		
+		echo "FILES := $(shell find . -name '*.java')" > makefile;
+		echo "main: compile exec" >> makefile;
+		echo "compile:" >> makefile;
+		echo "	@echo 'Compiling..'">> makefile;
+		echo "	@javac -d . sourcepath src -cp $(FILES)" >> makefile;
+		echo "	@jar -cvfm ${PWD##*/}.jar manifest.txt ${PWD##*/}* > /dev/null" >> makefile;
 		echo "exec:" >> makefile;
+		echo "	@echo 'Executing..'">>makefile;
 		echo "	@java -jar ${PWD##*/}.jar" >> makefile;
+		
 		echo "@ Makefile and manifest generated. @";
 		;;
 
@@ -35,7 +45,9 @@ case $1 in
 	nodejs)
 		echo "main: exec" > makefile;
 		echo "exec:" >> makefile;
+		echo "	@echo 'Executing..'">> makefile;
 		echo "	@nodejs ${PWD##*/}.js" >> makefile;
+		
 		echo "@ Makefile generated. @";
 		;;
 
@@ -43,7 +55,9 @@ case $1 in
 	prolog)
 		echo "main: exec" > makefile;
 		echo "exec:" >> makefile;
+		echo "	@echo 'Executing..'">> makefile;
 		echo "	@swipl -q -s ${PWD##*/}.pl -t ${PWD##*/}" >> makefile;
+		
 		echo "@ Makefile generated. @";
 		;;
 
@@ -51,7 +65,9 @@ case $1 in
 	python)
 		echo "main: exec" > makefile;
 		echo "exec:" >> makefile;
+		echo "	@echo 'Executing..'">> makefile;
 		echo "	@python ${PWD##*/}.py" >> makefile;
+		
 		echo "@ Makefile generated. @";
 		;;
 
