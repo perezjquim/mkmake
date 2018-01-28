@@ -32,7 +32,7 @@ case $1 in
 		echo "main: compile exec" >> makefile;
 		echo "compile:" >> makefile;
 		echo "	@echo 'Compiling..'">> makefile;
-		echo "	@javac -d . sourcepath src -cp \$(FILES)" >> makefile;
+		echo "	@javac -d . -sourcepath src -cp \$(FILES)" >> makefile;
 		echo "	@jar -cvfm ${PWD##*/}.jar manifest.txt ${PWD##*/}* > /dev/null" >> makefile;
 		echo "exec:" >> makefile;
 		echo "	@echo 'Executing..'">>makefile;
