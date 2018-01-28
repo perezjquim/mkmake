@@ -28,11 +28,11 @@ case $1 in
 		echo "Main-Class: ${PWD##*/}.${PWD##*/}" > manifest.txt;
 		echo "Class-Path: ." >> manifest.txt;
 		
-		echo "FILES := $(shell find . -name \"*.java\")" > makefile;
+		echo 'FILES := $(shell find . -name "*.java")' > makefile;
 		echo "main: compile exec" >> makefile;
 		echo "compile:" >> makefile;
 		echo "	@echo 'Compiling..'">> makefile;
-		echo "	@javac -d . -sourcepath src -cp $(FILES)" >> makefile;
+		echo '	@javac -d . -sourcepath src -cp $(FILES)' >> makefile;
 		echo "	@jar -cvfm ${PWD##*/}.jar manifest.txt ${PWD##*/}* > /dev/null" >> makefile;
 		echo "exec:" >> makefile;
 		echo "	@echo 'Executing..'">>makefile;
