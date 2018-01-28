@@ -26,14 +26,13 @@ case $1 in
 	# Java makefile
   	java)
 		echo "Main-Class: ${PWD##*/}.${PWD##*/}" > manifest.txt;
-		echo "Class-Path: ." >> manifest.txt;
 		
 		echo 'FILES := $(shell find . -name "*.java")' > makefile;
 		echo "main: compile exec" >> makefile;
 		echo "compile:" >> makefile;
 		echo "	@echo 'Compiling..'">> makefile;
-		echo '	@javac -d . -sourcepath src -cp $(FILES)' >> makefile;
-		echo "	@jar -cvfm ${PWD##*/}.jar manifest.txt ${PWD##*/}* > /dev/null" >> makefile;
+		echo '	@javac -d bin $(FILES)' >> makefile;
+		echo "	@jar -cvmf manifest.txt ${PWD##*/}.jar -C bin . > /dev/null" >> makefile;
 		echo "exec:" >> makefile;
 		echo "	@echo 'Executing..'">>makefile;
 		echo "	@java -jar ${PWD##*/}.jar" >> makefile;
