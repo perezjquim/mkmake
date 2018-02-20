@@ -20,6 +20,4 @@
 
 (...)
 
-## <a href="https://github.com/perezjquim/mkmake/archive/master.zip"> DOWNLOAD </a>
-
-Installation instructions: execute the command `make` in the directory which you extracted the .zip file.
+### <a href="https://github.com/perezjquim/mkmake/raw/master/mkmake.deb"> DOWNLOAD </a> (.deb)

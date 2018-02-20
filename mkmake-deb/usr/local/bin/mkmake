@@ -1,0 +1,79 @@
+#!/bin/bash
+
+###########
+# MKMAKE #
+###########
+
+case $1 in
+
+	# C Makefile
+	c)
+		echo "main: clean compile exec" > makefile;
+		echo "clean:" >> makefile;
+		echo "	@echo 'Cleaning up..'">> makefile;
+		echo "	@rm -f *.o" >> makefile;
+		echo "compile:" >> makefile;
+		echo "	@echo 'Compiling..'">>makefile;
+        	echo "	@gcc -g -c *.c" >> makefile;
+        	echo "	@gcc *.o -lpthread -g -o \"${PWD##*/}\"" >> makefile;
+        	echo "exec:" >> makefile;
+        	echo "	@echo 'Executing..'">>makefile;
+        	echo "	@./${PWD##*/}" >> makefile;
+        	
+		echo "@ Makefile generated. @";
+		;;
+
+	# Java makefile
+  	java)
+		echo "Main-Class: ${PWD##*/}.${PWD##*/}" > manifest.txt;
+		
+		echo 'FILES := $(shell find . -name "*.java")' > makefile;
+		echo "main: compile exec" >> makefile;
+		echo "compile:" >> makefile;
+		echo "	@echo 'Compiling..'">> makefile;
+		echo '	@javac -d bin $(FILES)' >> makefile;
+		echo "	@jar -cvmf manifest.txt ${PWD##*/}.jar -C bin . > /dev/null" >> makefile;
+		echo "exec:" >> makefile;
+		echo "	@echo 'Executing..'">>makefile;
+		echo "	@java -jar ${PWD##*/}.jar" >> makefile;
+		
+		echo "@ Makefile and manifest generated. @";
+		;;
+
+	# Nodejs makefile
+	nodejs)
+		echo "main: exec" > makefile;
+		echo "exec:" >> makefile;
+		echo "	@echo 'Executing..'">> makefile;
+		echo "	@nodejs ${PWD##*/}.js" >> makefile;
+		
+		echo "@ Makefile generated. @";
+		;;
+
+	# Prolog makefile
+	prolog)
+		echo "main: exec" > makefile;
+		echo "exec:" >> makefile;
+		echo "	@echo 'Executing..'">> makefile;
+		echo "	@swipl -q -s ${PWD##*/}.pl -t ${PWD##*/}" >> makefile;
+		
+		echo "@ Makefile generated. @";
+		;;
+
+	# Python makefile
+	python)
+		echo "main: exec" > makefile;
+		echo "exec:" >> makefile;
+		echo "	@echo 'Executing..'">> makefile;
+		echo "	@python ${PWD##*/}.py" >> makefile;
+		
+		echo "@ Makefile generated. @";
+		;;
+
+	# (invalid option)
+	*)
+		echo "@ Invalid option. @";
+		echo "@ Try again. (example: mkmake java) @";
+		;;
+
+esac

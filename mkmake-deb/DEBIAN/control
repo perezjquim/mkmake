@@ -1,0 +1,5 @@
+Package: Mkmake
+Maintainer: perezjquim
+Architecture: all
+Version: 1.0
+Description: Makefile generator (for a chosen programming language)
