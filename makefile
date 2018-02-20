@@ -7,5 +7,5 @@ update:
 
 repackage:
 	@echo "@Repackaging...@"
-	@dpkg-deb --build mkmake-deb mkmake-install > /dev/null
+	@dpkg-deb --build mkmake-deb mkmake-install.deb > /dev/null
 	@echo "@Repackaged!@"
