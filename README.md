@@ -20,4 +20,4 @@
 
 (...)
 
-### <a href="https://github.com/perezjquim/mkmake/raw/master/mkmake.deb"> DOWNLOAD </a> (.deb)
+### <a href="https://github.com/perezjquim/mkmake/raw/master/mkmake-install.deb"> DOWNLOAD </a> (.deb)
