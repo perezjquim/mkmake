@@ -69,6 +69,19 @@ case $1 in
 		
 		echo "@ Makefile generated. @";
 		;;
+		
+	#C# makefile
+	c#)
+		echo "main: clean compile exec" > makefile;
+		echo "clean:" >> makefile;
+		echo "	@rm -f ${PWD##*/}.exe" >> makefile;
+		echo "compile:">>makefile;
+		echo "	@mcs *.cs">>makefile;
+		echo "exec:">>makefile;
+		echo "	@mono ${PWD##*/}.exe">>makefile;
+
+		echo "@ Makefile generated. @";
+		;;
 
 	# (invalid option)
 	*)
