@@ -72,11 +72,14 @@ case $1 in
 		
 	#C# makefile
 	c#)
-		echo "main: clean compile exec" > makefile;
+		echo "references = ''" > makefile;
+		echo 'files = $(shell find . -name "*.cs")' >> makefile;
+		echo "">> makefile;
+		echo "main: clean compile exec" >> makefile;
 		echo "clean:" >> makefile;
-		echo "	@rm -f ${PWD##*/}.exe" >> makefile;
+		echo "	@rm -rf ${PWD##*/}.exe" >> makefile;
 		echo "compile:">>makefile;
-		echo "	@mcs *.cs">>makefile;
+		echo '	@mcs -out:'"${PWD##*/}.exe"' $(references) $(files)' >>makefile;
 		echo "exec:">>makefile;
 		echo "	@mono ${PWD##*/}.exe">>makefile;
 
