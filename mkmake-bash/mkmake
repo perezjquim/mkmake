@@ -85,6 +85,19 @@ case $1 in
 
 		echo "@ Makefile generated. @";
 		;;
+		
+	#Swift makefile
+	swift)
+		echo "EXECUTABLENAME := '${PWD##*/}'" > makefile;
+		echo "" >> makefile;
+		echo "main: compile exec" >> makefile;
+		echo "compile:" >> makefile;
+		echo '	@swiftc *.swift -o $(EXECUTABLENAME)' >> makefile;
+		echo "exec:" >> makefile;
+		echo '	@./$(EXECUTABLENAME)' >> makefile;
+
+		echo "@ Makefile generated. @";
+		;;
 
 	# (invalid option)
 	*)

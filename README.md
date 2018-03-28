@@ -5,11 +5,12 @@
 ## Supported programming languages:
 
 - Java
-- C
+- C/C++
 - C#
 - Nodejs
 - Prolog
 - Python
+- Swift
 
 ## Examples of use
 
