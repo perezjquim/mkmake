@@ -65,7 +65,7 @@ case $1 in
 		echo "main: exec" > makefile;
 		echo "exec:" >> makefile;
 		echo "	@echo 'Executing..'">> makefile;
-		echo "	@python ${PWD##*/}.py" >> makefile;
+		echo "	@python3 ${PWD##*/}.py" >> makefile;
 		
 		echo "@ Makefile generated. @";
 		;;
